@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import CountryTab from "../../components/country-tab/country-tab.component";
+import SearchField from "../../components/search-field/search-field.component";
 import { getCountries } from "../../utils/getAllCountries.js";
 
 import styles from './main-page.module.scss'
 
-const MainPage = () => {
+const MainPage = (props) => {
+    const { theme } = props;
     const [list, setList] = useState();
+    const [filteredList, setFilteredList] = useState();
+    const [search, setSearch] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     
     useEffect(() => {
@@ -17,17 +21,28 @@ const MainPage = () => {
         fetchData();
     }, [])
 
+    useEffect(() => {
+        const newFilteredList = list?.filter((country) => {
+            return country.name.official.toLowerCase().includes(search);
+        });
+
+        setFilteredList(newFilteredList);
+    }, [list, search])
+
     return (  
         <div className = {styles.div}>
-            { isLoading ? (null) : (
+            <SearchField placeholder = {'Search for a country...'} setSearch = {setSearch}/>
+            <div className = {styles.countries}>
+                { isLoading ? (null) : (
                 <>
                 {
-                    list.map((country) => (
-                        <CountryTab key = {country.name.official} list = {country}/>
+                    filteredList?.map((country) => (
+                        <CountryTab key = {country.name.official} list = {country} theme = {theme}/>
                     ))
                 }
                 </>
             )}
+            </div>
         </div>
     );
 }

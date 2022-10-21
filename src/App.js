@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {Routes, Route} from 'react-router-dom'
 
@@ -7,25 +7,29 @@ import Navbar from './components/navbar/navbar.component';
 import MainPage from './routes/main/main-page.component';
 
 const App = () => {
-  const [darkTheme, setDarkTheme] = useState(
-    localStorage.getItem('theme') || 'false'
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme') || 'light'
   )
 
   const handleThemeChange = () => {
-    if(darkTheme === 'true'){
-      setDarkTheme('false');
-      localStorage.setItem('theme', 'false');
+    if(theme === 'light'){
+      setTheme('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      setDarkTheme('true');
-      localStorage.setItem('theme', 'true');
+      setTheme('light');
+      localStorage.setItem('theme', 'light');
     }
   }
 
+  useEffect(() => {
+    document.body.className = theme;
+  }, [])
+
   return(
-    <div className='App'>
+    <div className={`App ${theme}`}>
       <Routes>
-        <Route path = '/' element = {<Navbar/>}>
-          <Route index element = {<MainPage/>}/>
+        <Route path = '/' element = {<Navbar handleThemeChange = {handleThemeChange} theme = {theme}/>}>
+          <Route index element = {<MainPage theme = {theme}/>}/>
         </Route>
       </Routes>
     </div>

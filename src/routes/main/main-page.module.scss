@@ -1,5 +1,18 @@
 .div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .countries{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .div{
+        .countries{
+            flex-direction: row;
+            align-items:initial;
+        }
+    }
 }
