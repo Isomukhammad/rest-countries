@@ -23,7 +23,7 @@ const Navbar = (props) => {
                 <p 
                     className={styles.themeButton}
                     onClick = {handleThemeChange}
-                >Dark mode</p>
+                >&#9790; Dark mode</p>
             </div>
             <Outlet />
         </>

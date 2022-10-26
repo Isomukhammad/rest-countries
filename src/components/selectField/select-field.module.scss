@@ -1,0 +1,27 @@
+.div{
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: .3em;
+    padding: 1em;
+    border: none;
+    box-shadow: 0 0 5px rgb(200, 200, 200);
+
+    .menu{
+        position: absolute;
+        z-index: 1;
+        border-radius: .3em;
+        padding: 1em;
+        width: 100%;
+        box-shadow: 0 0 5px rgb(200, 200, 200);
+        background-color: #fff;
+        top: 4em;
+        left: 0em;
+        display: flex;
+        flex-direction: column;
+
+        div{
+            padding: .5em 0;
+        }
+    }
+}

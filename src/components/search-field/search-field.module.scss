@@ -18,3 +18,12 @@
         }
     }
 }
+
+@media screen and (min-width: 769px) {
+    .div{
+        width: fit-content;
+        input{
+            width: 100%;
+        }
+    }
+}

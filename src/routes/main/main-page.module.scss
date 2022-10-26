@@ -1,4 +1,12 @@
 .div{
+    .filter{
+        margin: 0 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .countries{
         display: flex;
         flex-direction: column;
@@ -11,6 +19,11 @@
 @media screen and (min-width: 769px) {
     .div{
         min-height: 90vh;
+
+        .filter{
+            flex-direction: row;
+        }
+
         .countries{
             flex-direction: row;
             align-items:initial;
