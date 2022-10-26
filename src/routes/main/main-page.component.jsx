@@ -23,7 +23,7 @@ const MainPage = (props) => {
 
     useEffect(() => {
         const newFilteredList = list?.filter((country) => {
-            return country.name.official.toLowerCase().includes(search);
+            return country.name.common.toLowerCase().includes(search);
         });
 
         setFilteredList(newFilteredList);
@@ -31,13 +31,13 @@ const MainPage = (props) => {
 
     return (  
         <div className = {styles.div}>
-            <SearchField placeholder = {'Search for a country...'} setSearch = {setSearch}/>
+            <SearchField placeholder = {'Search for a country...'} setSearch = {setSearch} theme = {theme}/>
             <div className = {styles.countries}>
                 { isLoading ? (null) : (
                 <>
                 {
                     filteredList?.map((country) => (
-                        <CountryTab key = {country.name.official} list = {country} theme = {theme}/>
+                        <CountryTab key = {country.name.common} list = {country} theme = {theme}/>
                     ))
                 }
                 </>

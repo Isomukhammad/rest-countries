@@ -1,7 +1,7 @@
 import styles from './search-field.module.scss';
 
 const SearchField = (props) => {
-    const {placeholder, setSearch} = props;
+    const {placeholder, setSearch, theme} = props;
 
     const handleChange = (e) => {
         setSearch(e.target.value.toLowerCase())
@@ -13,6 +13,14 @@ const SearchField = (props) => {
                 type="text" 
                 placeholder={placeholder}
                 onChange = {handleChange}
+                style = { theme === 'dark' ? 
+                    {
+                        boxShadow: '0 5px 5px rgb(35, 35, 35)',
+                        backgroundColor: '#333',
+                        color: '#FFF'
+                    }
+                    : null   
+                }    
             />
         </div>
     )

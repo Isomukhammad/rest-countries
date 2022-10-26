@@ -1,7 +1,7 @@
 export const getCountryDetail = async (country) => {
     let data = [];
     try{
-        await fetch(`https://restcountries.com/v3.1/name/${country}`)
+        await fetch(`https://restcountries.com/v3.1/alpha/${country}`)
             .then(response => response.json())
             .then((json) => {data = json});
 

@@ -10,6 +10,7 @@
 
 @media screen and (min-width: 769px) {
     .div{
+        min-height: 90vh;
         .countries{
             flex-direction: row;
             align-items:initial;

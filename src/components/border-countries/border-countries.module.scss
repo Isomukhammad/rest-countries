@@ -1,0 +1,15 @@
+.div{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 1em 0;
+
+    .button{
+        cursor: pointer;
+        border-radius: .3em;
+        padding: .5em 2.5em;
+        background-color: transparent;
+        border: none;
+        box-shadow: 0 0px 5px rgb(200, 200, 200);
+    }
+}

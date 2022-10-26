@@ -1,22 +1,22 @@
 .div{
-    padding: 2em 1em;
+    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     box-shadow: 0 5px 5px rgb(240, 240, 240);
-    
+    height: 10vh;
+
+    p{
+        cursor: pointer;
+    }
+
     .title{
         font-weight: 800;
     }
-
+    
     .themeButton{
         font-weight: 600;
-        cursor: pointer;
     }
+    
 }
-
-// @media (prefers-color-scheme: dark) {
-//     .div {
-//         box-shadow: 0 5px 5px rgb(35, 35, 35);
-//     }
-// }
