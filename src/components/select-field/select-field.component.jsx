@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './select-field.module.scss';
 
-const SelectField = ({setRegion, theme}) => {
+const SelectField = ({region, setRegion, theme}) => {
     const [open, setOpen] = useState(false);
 
     const onChangeHandler = (e) => {
@@ -26,7 +26,7 @@ const SelectField = ({setRegion, theme}) => {
                 : null   
             }
         >
-            <p>&#x27F1; Filter by region...</p>
+            {region ? <p>{region}</p> : <p>&#x27F1; Filter by region...</p>}
             
             <div 
                 style = { open ? 
