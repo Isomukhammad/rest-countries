@@ -18,7 +18,6 @@ const Country = (props) => {
             await getCountryDetail(country).then((data) => setDetails(data));
             setIsLoading(false);
         }
-
         fetchData();
     }, [country])
 
